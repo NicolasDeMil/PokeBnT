@@ -4,16 +4,18 @@
         <%= image_tag "pokeball.png", id: "logo" %>
 
         <% if current_user %>
-          <li class="menu__group"><%= link_to "Community", users_path, class: "menu__link" %></li>
-          <li class="menu__group"><%= link_to "Pokemons", pokemons_path, class: "menu__link" %></li>
-          <li class="menu__group"><%= link_to "My Pokemon", user_path(current_user), class: "menu__link" %></li>
-          <li class="menu__group"><%= link_to "Sign Out", destroy_user_session_path, method: :delete,  class: "menu__link" %></li>
-          <% if current_user.photo.attached? %>
-            <li class="menu__group"><%= cl_image_tag(current_user.photo.key, :transformation=>[
-                  {:width=>400, :height=>400, :gravity=>"auto", :radius=>"max", :crop=>"crop"},
-                  {:width=>40, :crop=>"scale"}
-                  ], id:"uservatar", style: "border-radius:50%") %></li>
-          <% end %>
+        <li class="menu__group"><%= link_to "Community", users_path, class: "menu__link" %></li>
+        <li class="menu__group"><%= link_to "Pokemon", pokemons_path, class: "menu__link" %></li>
+        <li class="menu__group"><%= link_to "My Pokemon", user_path(current_user), class: "menu__link" %></li>
+        <li class="menu__group"><%= link_to "Sign Out", destroy_user_session_path, method: :delete,  class: "menu__link" %></li>
+        <% if current_user.photo.attached? %>
+
+          <li class="menu__group"><%= cl_image_tag(current_user.photo.key, :transformation=>[
+                {:width=>400, :height=>400, :gravity=>"auto", :radius=>"max", :crop=>"crop"},
+                {:width=>40, :crop=>"scale"}
+                ], id:"uservatar", style: "border-radius:50%") %></li>
+        <% end %>
+    
         <% else %>
         <li class="menu__group"><%= link_to "Community", users_path, class: "menu__link" %></li>
         <li class="menu__group"><%= link_to "Pokemon", pokemons_path, class: "menu__link" %></li>
