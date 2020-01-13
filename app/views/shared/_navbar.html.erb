@@ -5,7 +5,7 @@
 
         <% if current_user %>
         <li class="menu__group"><%= link_to "Community", users_path, class: "menu__link" %></li>
-        <li class="menu__group"><%= link_to "Pokemon", pokemons_path, class: "menu__link" %></li>
+        <li class="menu__group"><%= link_to "Pokedex", pokemons_path, class: "menu__link" %></li>
         <li class="menu__group"><%= link_to "My Pokemon", user_path(current_user), class: "menu__link" %></li>
         <li class="menu__group"><%= link_to "Sign Out", destroy_user_session_path, method: :delete,  class: "menu__link" %></li>
         <% if current_user.photo.attached? %>

@@ -1,18 +1,28 @@
-<div class="container my-5 d-inline-flex rounded" style="background-color:white; opacity: 0.9; align-self: center;">
+<div class="container m-3 d-inline-flex rounded white-background">
+
 	<div class="row align-items-center justify-content-center p-5">
+
     	<div class="col-md-5" >
-  			<%= image_tag "oak.png", style:"max-block-size:fit-content", class: "" %>
+
+  			<%= image_tag "oak.png", style:"max-height:fit-content" %>
+
     	</div>
-    	<div class="col-md-7 text-center p-4 rounded">
-      		<p>Hey there! Welcome to the world of pokémon! Are you a <span style="background-color:blue; padding: 5px; border-radius: 20%; color:white;">boy</span> or a <span style="background-color:red; padding: 5px; border-radius: 20%; color:white;">girl</span>?</p>
-          <br>
-          <p>My name is Professor Oak! This world is inhabited by creatures called pokémon! For some people, pokémon are pets. Others use them for fights. Myself...I study pokémon as a profession.</p>
-      		<br>
-      		<p>PokeBnR is a game involving creatures called “pokémon” and “trainers.” Pokémon trainers can choose pokemon and use them to battle other pokemon and trainers.</p><br>
-      		<p>The pokémon themselves are various, having different appearances, names, powers, potentials, weaknesses, and personalities and any good trainer knows that you can't learn unless you play the game. Pokemon can evolve, grow stronger, and lead the trainer to greater pursuits and glory.</p>
-      		<br>
-      		<p>To learn even more about Pokemon, click <%= link_to "here", "https://www.livemint.com/Sundayapp/Z7zHxltyWtFNzcoXPZAbjI/A-brief-history-of-Pokmon.html", :target => "_blank"  %>.To begin playing and start building your team: </p><br>
-          <a href="/users/sign_up" class="btn" id="add-btn" style="color:white;">Sign Up</a>
+
+    	<div class="col-md-7 text-center p-4 text">
+
+    		<p>Hey there! Welcome to the world of pokemon! Are you a <span style="background-color:blue; padding: 5px; border-radius: 20%; color:white;">boy</span> or a <span style="background-color:red; padding: 5px; border-radius: 20%; color:white;">girl</span>?</p>
+        <br>
+        <p>My name is Professor Oak! This world is inhabited by creatures called pokemon! For some people, pokemon are pets. Others use them for fights. Myself...I study pokemon as a profession.</p>
+    		<br>
+    		<p>Here, pokemon trainers can choose pokemon and use them to battle other pokemon and trainers.</p><br>
+    		<p>The pokemon themselves have different appearances, names, powers, potentials, weaknesses, and personalities. Many mysteries await and any good trainer knows that you can't learn unless you play the game.</p>
+    		<br>
+    		<p>To learn even more about Pokemon, click <%= link_to "here", "https://www.pokemon.com/us/", :target => "_blank"  %>.</p><br>
+        <p>To start building your team and become the best trainer out there: </p><br>
+        <a href="/users/sign_up" class="btn" id="add-btn" style="color:white;">Click Here</a>
+
     	</div>
+
     </div>
+
 </div>
