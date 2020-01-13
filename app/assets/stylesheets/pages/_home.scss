@@ -1,20 +1,11 @@
 // Specific CSS for your home-page
 
-.content {
+.white-background {
+  background-color:white;
+  opacity: 0.9;
+  // align-self: center;
+}
 
-  padding: 20px;
-
-  .pokemon-logo {
-  height: 25vh;
-  width: 60vh;
-  margin: 1em;
-  }
-
-  .italic {
-    color: white;
-    text-align: center;
-    font-size: 3em;
-    font-style: italic;
-    opacity: 0.8;
-  }
+.text {
+  font-size: 24px;
 }
