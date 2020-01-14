@@ -19,6 +19,7 @@ pokemon_all_moves = []
 puts 'Creating Pokemon...'
 #Conditionals
 until counter == 151
+  pokemon_all_moves.clear
   counter += 1
   #Scraping Pokemon.com website
   url = "https://www.pokemon.com/uk/pokedex/#{counter}"
