@@ -19,6 +19,7 @@ pokemon_all_moves = []
 puts 'Creating Pokemon...'
 #Conditionals
 until counter == 151
+  pokemon_all_moves.clear
   counter += 1
   #Scraping Pokemon.com website
   url = "https://www.pokemon.com/uk/pokedex/#{counter}"
@@ -37,22 +38,24 @@ until counter == 151
   pokemon_defense = pokemon['stats'][3]['base_stat']
   pokemon_attack = pokemon['stats'][4]['base_stat']
   pokemon_hp = pokemon['stats'][5]['base_stat']
+  pokemon_base_xp = pokemon['base_experience']
   pokemon_kind = html_doc.search('.dtm-type ul li a').first.text
   pokemon_weakness = html_doc.search('.dtm-weaknesses ul li a').first.text.strip
   pokemon_picture = html_doc.search('.profile-images img').attribute('src').value
-  pokemon_description = html_doc.search('.version-y').text.strip
+  pokemon_description = html_doc.search('.version-descriptions.active .version-x').text.strip
   # Pokemon Moves
   pokemon_moves = pokemon["moves"].each do |move|
     pokemon_move_info = move.values_at("move")[0].values_at("name", "url")
-    pokemon_move_seralized = open(pokemon_move_info[1]).read
-    pokemon_specific_move_info = JSON.parse(pokemon_move_seralized)
-    if pokemon_specific_move_info['power'] != nil
+    pokemon_move_learned_at = move.values_at("version_group_details")[0][0].values_at("level_learned_at")[0]
+    pokemon_move_serialized = open(pokemon_move_info[1]).read
+    pokemon_specific_move_info = JSON.parse(pokemon_move_serialized)
+    if pokemon_specific_move_info['power'] != nil && pokemon_move_learned_at != 0
       pokemon_move_name = pokemon_move_info[0].gsub('-', ' ').capitalize
       pokemon_move_power = pokemon_specific_move_info['power']
       pokemon_move_accuracy = pokemon_specific_move_info['accuracy']
       pokemon_move_pp = pokemon_specific_move_info['pp']
       pokemon_move_type = pokemon_specific_move_info["type"]["name"]
-      pokemon_move_learned_at = move.values_at("version_group_details")[0][0].values_at("level_learned_at")[0]
+      pokemon_move_damage_class = pokemon_specific_move_info['damage_class']["name"]
       pokemon_one_move = Hash.new
       pokemon_one_move["name"] = pokemon_move_name
       pokemon_one_move["power"] = pokemon_move_power
@@ -60,6 +63,7 @@ until counter == 151
       pokemon_one_move["pp"] = pokemon_move_pp
       pokemon_one_move["type"] = pokemon_move_type
       pokemon_one_move["learned_at"] = pokemon_move_learned_at
+      pokemon_one_move["damage_class"] = pokemon_move_damage_class
     end
 
     pokemon_all_moves << pokemon_one_move if pokemon_one_move && pokemon_one_move["power"] != nil
@@ -104,6 +108,7 @@ until counter == 151
     defense: pokemon_defense,
     attack: pokemon_attack,
     weakness: pokemon_weakness,
+    base_xp: pokemon_base_xp,
     moves: pokemon_all_moves,
   })
   puts "#{pokemon_name} has been created. #{counter} of 151 Pokemon created."

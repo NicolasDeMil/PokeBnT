@@ -32,23 +32,72 @@
   </div>
   <div class="row justify-content-center">
     <div class="col" style="text-align: -webkit-center;">
-      <p class="card--<%=@pokemon.kind_of.downcase%> rounded" style="width:10%;color:white"><%= @pokemon.kind_of %></p>
+      <p class="card--<%=@pokemon.kind_of.downcase%> rounded" style="width:20%;color:white"><%= @pokemon.kind_of %></p>
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <p class="descriptive"><%= @pokemon.description %></p>
-      <div class="hero-info">
-          <!-- <h2>Info</h2>
-          <ul>
-            <li><span class="cat"><p>Type</p></span><span class="stats"><%= @pokemon.kind_of %></span></li>
-            <li><span class="cat">Health</span><span class="stats"><%= @pokemon.hp %></span></li>
-          </ul> -->
-        </div>
+    </div>
+    <div class="col-md-4">
+      <div class="hero-image" style="background-image: url(<%= @pokemon.picture %>); height: 100%;">
       </div>
-      <div class="col-md-6">
-        <div class="hero-image" style="background-image: url(<%= @pokemon.picture %>); height: 100%;">
-        </div>
+    </div>
+    <div class="col-md-4 hero-info">
+      <h2>STATS</h2>
+      <ul>
+        <li><span class="cat">Health</span><span class="stats"><%= @pokemon.hp %></span></li>
+        <li><span class="cat">Attack</span><span class="stats"><%= @pokemon.attack %></span></li>
+        <li><span class="cat">Defense</span><span class="stats"><%= @pokemon.defense %></span></li>
+        <li><span class="cat">Special Attack</span><span class="stats"><%= @pokemon.special_attack %></span></li>
+        <li><span class="cat">Special Defense</span><span class="stats"><%= @pokemon.special_defense %></span></li>
+        <li><span class="cat">Speed</span><span class="stats"><%= @pokemon.speed %></span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <h2 class="mb-3">MOVES</h2>
+    <div class="col-md-12">
+      <div class="row">
+          <div class="col-md-3 mb-3">
+            <%= "Name" %>
+          </div>
+          <div class="col-md-2 mb-3">
+            <%= "Pwr" %>
+          </div>
+          <div class="col-md-2 mb-3">
+            <%= "Type" %>
+          </div>
+          <div class="col-md-2 mb-3">
+            <%= "Acc" %>
+          </div>
+          <div class="col-md-1 mb-3">
+            <%= "lvl" %>
+          </div>
+          <div class="col-md-2 mb-3">
+            <%= "class" %>
+          </div>
+
+        <% @moves.each do |move| %>
+          <div class="col-md-3">
+            <%= move["name"] %>
+          </div>
+          <div class="col-md-2">
+            <%= move["power"]%>
+          </div>
+          <div class="col-md-2">
+            <%= move["type"]%>
+          </div>
+          <div class="col-md-2">
+            <%= move["accuracy"] %>
+          </div>
+          <div class="col-md-1">
+            <%= move["learned_at"] %>
+          </div>
+          <div class="col-md-2">
+            <%= move["damage_class"] %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
