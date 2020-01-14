@@ -12,5 +12,7 @@ class PokemonsController < ApplicationController
   def show
     @pokemon = Pokemon.find(params[:id])
     authorize @pokemon
+
+    @moves = @pokemon.moves.sort_by { |move| move["learned_at"] }
   end
 end
