@@ -117,7 +117,7 @@
         </div>
         <div class="col-md-1">
           <div>
-            <p><%= user.battles_fought == 0 ? 0 : user.battles_won / user.battles_fought * 100 %>%</p>
+            <p><%= user.battles_fought == 0 ? 0 : (user.battles_won.fdiv(user.battles_fought) * 100).round(0)%>%</p>
           </div>
         </div>
         <div class="col-md-1">
