@@ -37,3 +37,12 @@
   position: relative;
   right: -50%;
 }
+
+.disclaimer p {
+  margin-top: -5px;
+  font-size: 0.5em;
+  font-weight: 100;
+  color: darken($dark, 10%);
+  letter-spacing: 1px;
+}
+
