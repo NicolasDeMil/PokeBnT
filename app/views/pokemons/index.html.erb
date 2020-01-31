@@ -14,27 +14,23 @@
 
 <div class="cards-list" >
 
-    <% @pokemons.each do |pokemon|  %>
-
+    <% @pokemons.sort.each do |pokemon|  %>
       <div class="cust-card 1 pokemon">
         <%= link_to pokemon_path(pokemon) do %>
           <div class="card_image m-1" style="background-image: url(<%= pokemon.picture %>)"></div>
           <div class="card_title title-black">
-            <p ><%= pokemon.name %></p>
+            <p><%= pokemon.name %></p>
           </div>
         <% end %>
       </div>
     <% end %>
   </div>
 
-
-
-
-<div class="pagination">
-  <% if params[:query].present? %>
-  <% else %>
-  <%= will_paginate @pokemons, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
-  <% end %>
+<!--   <div class="pagination">
+    <#% if params[:query].present? %>
+    <#% else %>
+      <%#= will_paginate @pokemons, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+    <#% end %>
+  </div>
 </div>
-</div>
-
+ -->
