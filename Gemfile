@@ -32,7 +32,7 @@ end
 
 #Extra Gems
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
-gem 'nokogiri', '~> 1.6', '>= 1.6.8'
+gem 'nokogiri', '~> 1.11'
 gem 'pundit'
 gem 'will_paginate', '~> 3.1.7'
 gem 'bootstrap-will_paginate'
