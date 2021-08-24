@@ -10,5 +10,10 @@
   },
   "devDependencies": {
     "webpack-dev-server": "^3.9.0"
+  },
+  "resolutions": {
+    "glob-parent": "5.1.2",
+    "tar": "4.4.15",
+    "trim-newlines": "3.0.1"
   }
 }
